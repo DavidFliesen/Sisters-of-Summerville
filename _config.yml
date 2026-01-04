@@ -1,0 +1,19 @@
+title: "Sisters of Summerville"
+description: "Daily Adventures of Honey Bear & Bootsie Belle"
+author: "David Fliesen"
+baseurl: "/Sisters-of-Summerville"
+url: "https://davidfliesen.github.io"
+
+markdown: kramdown
+
+collections:
+  comics:
+    output: true
+    permalink: /comics/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: "comics"
+    values:
+      layout: "comic"

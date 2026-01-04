@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <meta name="description" content="{{ page.description | default: site.description }}">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Georgia, serif;
+            background: linear-gradient(135deg, #FFF8F0 0%, #FFE9F0 100%);
+            color: #2C2C2C;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        header {
+            background: linear-gradient(135deg, #FFB6D9 0%, #E6D5F5 100%);
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            font-size: 2.5rem;
+            color: #2C2C2C;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.5);
+            margin-bottom: 0.5rem;
+        }
+        header p {
+            font-size: 1.1rem;
+            color: #4A4A4A;
+            font-style: italic;
+        }
+        nav {
+            background: white;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+        nav a {
+            text-decoration: none;
+            color: #2C2C2C;
+            font-weight: 600;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+        nav a:hover {
+            color: #FFB6D9;
+            background: #FFF8F0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        footer {
+            background: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 4rem;
+            border-top: 3px solid #FFB6D9;
+        }
+        footer a {
+            color: #FFB6D9;
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🎭💙 {{ site.title }} 💙🎭</h1>
+        <p>{{ site.description }}</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="{{ '/' | relative_url }}">Home</a></li>
+            <li><a href="{{ '/comics/' | relative_url }}">Comics</a></li>
+            <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+        </ul>
+    </nav>
+    
+    <main class="container">
+        {{ content }}
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 {{ site.author }}. Created with AI & ❤️</p>
+        <p>
+            <a href="https://facebook.com/profile.php?id=61581673621814" target="_blank">Facebook</a> |
+            <a href="https://github.com/DavidFliesen" target="_blank">GitHub</a> |
+            <a href="https://suno.com/@cibola" target="_blank">Music</a>
+        </p>
+    </footer>
+</body>
+</html>

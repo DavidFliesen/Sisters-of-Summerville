@@ -1,0 +1,37 @@
+---
+layout: default
+title: "Comic Archive"
+---
+
+<div style="text-align: center; margin-bottom: 3rem;">
+    <h1 style="color: #FFB6D9; margin-bottom: 1rem; font-size: 2.5rem;">📚 Comic Archive</h1>
+    <p style="font-size: 1.1rem; color: #4A4A4A;">All episodes of Sisters of Summerville</p>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem;">
+    {% for comic in site.comics reversed %}
+    <div style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: all 0.3s;">
+        <a href="{{ comic.url | relative_url }}" style="text-decoration: none; color: inherit; display: block;">
+            <div style="width: 100%; aspect-ratio: 1; background: linear-gradient(135deg, #FFB6D9 0%, #E6D5F5 50%, #FFD700 100%); display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                {% if comic.image %}
+                <img src="{{ comic.image | relative_url }}" alt="{{ comic.title }}" style="width: 100%; height: 100%; object-fit: cover;">
+                {% else %}
+                <span style="color: white; font-size: 1.2rem;">Comic Image</span>
+                {% endif %}
+            </div>
+            <div style="padding: 1.5rem;">
+                <h3 style="color: #FFB6D9; margin-bottom: 0.5rem;">{{ comic.title }}</h3>
+                <div style="color: #888; font-size: 0.85rem; margin-bottom: 1rem;">{{ comic.date | date: "%B %d, %Y" }}</div>
+                <p style="color: #4A4A4A; font-size: 0.95rem;">{{ comic.excerpt | strip_html | truncatewords: 20 }}</p>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+
+{% if site.comics.size == 0 %}
+<div style="text-align: center; padding: 4rem 2rem; background: white; border-radius: 20px; margin-top: 2rem;">
+    <h2 style="color: #FFB6D9; margin-bottom: 1rem;">No comics yet!</h2>
+    <p style="color: #4A4A4A;">Check back soon for the first adventures of Honey Bear and Bootsie Belle!</p>
+</div>
+{% endif %}
